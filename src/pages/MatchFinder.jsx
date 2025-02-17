@@ -29,6 +29,11 @@ function MatchFinder({ onMatchFound, filters }) { // Callback to notify MemeFeed
 
       setLoading(true);
 
+      // Fetch user's existing matches to exclude them
+      const userRef = doc(db, "users", userId);
+      const userSnap = await getDoc(userRef);
+      const existingMatches = userSnap.exists() ? userSnap.data().matches || [] : [];
+
       // Fetch all memes and liked users
       const querySnapshot = await getDocs(collection(db, "memes"));
       const memes = querySnapshot.docs.map((doc) => doc.data());
@@ -89,7 +94,8 @@ function MatchFinder({ onMatchFound, filters }) { // Callback to notify MemeFeed
         });
       }
 
-
+      // Exclude already matched users
+      filteredMatches = filteredMatches.filter(({ user }) => !existingMatches.includes(user));
 
       if (filteredMatches.length > 0) {
         const matchedUserId = filteredMatches[0].user; // Pick the best match
