@@ -141,6 +141,7 @@ import { FaLinkedinIn } from "react-icons/fa6";
 import { doc, getDoc } from "firebase/firestore";
 import { auth, db } from "../firebase";
 
+
 function Profile() {
   const navigate = useNavigate();
   const userId = auth.currentUser?.uid;
@@ -166,7 +167,9 @@ function Profile() {
           <FaArrowLeft />
         </button>
         <h1 className="text-lg font-bold">Profile</h1>
-         <button className="text-gray-600 text-xl"> <FaFilter /></button>
+         <button className="text-gray-600 text-xl"> <Link to="/filter">
+          <FaFilter />
+        </Link></button>
       </div>
 
       {/* Profile Section */}
@@ -233,8 +236,8 @@ function Profile() {
 
       {/* Footer */}
       <div className="mt-4 text-left text-xl text-gray-bold-500">
-        <p className="text-4xl text-blue-500">Not people.</p>
         <p className="text-4xl text-blue-500">Swipe memes.</p>
+        <p className="text-4xl text-blue-500">Not people.</p>
 
         <div className="flex gap-10 mt-2">
           {/* Placeholder social icons */}

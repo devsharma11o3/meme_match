@@ -33,12 +33,13 @@ function MemeUpload() {
 
     try {
       const response = await axios.post(
-        "https://api.cloudinary.com/v1_1/djljdlcbf/image/upload",
+        import.meta.env.VITE_CLOUDINARY_URL,
         formData
       );
 
       const imageURL = response.data.secure_url;
-      console.log("✅ Uploaded Meme URL:", imageURL);
+      // console.log("✅ Uploaded Meme URL:", imageURL);
+      console.log("✅ Uploaded Meme URL:");
 
       await addDoc(collection(db, "memes"), {
         imageURL,

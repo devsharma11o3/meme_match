@@ -163,7 +163,7 @@ function MemeFeed() {
       </div>
 
       {/* Swipe Buttons */}
-      <div className="flex justify-center gap-10 py-4">
+      {/* <div className="flex justify-center gap-10 py-4">
         <button 
           className="bg-red-500 text-white p-4 rounded-full shadow-lg text-2xl"
           onClick={() => handleButtonSwipe("left")}
@@ -176,7 +176,7 @@ function MemeFeed() {
         >
           <FaHeart />
         </button>
-      </div>
+      </div> */}
 
       {/* Match Popup */}
          {/* Match Finder */}

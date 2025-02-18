@@ -8,6 +8,8 @@ const provider = new GoogleAuthProvider();
 
 console.log("🔥 Firebase Auth & Firestore Initialized");
 
+
+
 // ✅ Save user to Firestore if they don't exist
 const saveUserToFirestore = async (user) => {
   if (!user) return; // Ensure user object is valid

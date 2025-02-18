@@ -5,6 +5,9 @@ import { Switch } from "../components/Switch";
 import { getFirestore, doc, setDoc, getDoc } from "firebase/firestore";
 import { getAuth, onAuthStateChanged } from "firebase/auth";
 import app from "../firebase";
+import { useNavigate } from "react-router-dom";
+import {  FaArrowLeft,FaFilter } from "react-icons/fa";
+
 
 const db = getFirestore(app);
 const auth = getAuth(app);
@@ -14,6 +17,7 @@ const Filter = ({ onApplyFilters }) => {
     const [distance, setDistance] = useState(50);
     const [ageRange, setAgeRange] = useState([18, 40]);
     const [userId, setUserId] = useState(null);
+    const navigate = useNavigate();
 
     useEffect(() => {
         const unsubscribe = onAuthStateChanged(auth, (user) => {
@@ -62,6 +66,9 @@ const Filter = ({ onApplyFilters }) => {
 
     return (
         <div className="p-4 flex flex-col h-screen bg-blue-100">
+            <button onClick={() => navigate(-1)} className="text-2xl p-1 rounded-full hover:bg-gray-200 transition">
+                <FaArrowLeft />
+            </button>
             <h2 className="text-xl font-bold mb-4 ">Filter Matches</h2>
 
             {/* Gender Filter */}

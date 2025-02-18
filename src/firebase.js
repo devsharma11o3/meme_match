@@ -8,13 +8,14 @@ import { getFirestore } from "firebase/firestore";  // Import Firestore
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
-  apiKey: "AIzaSyCVtcZTeNH8fHnNuQO9TD3YR7mE2E-as28",
-  authDomain: "meme-dating-app.firebaseapp.com",
-  projectId: "meme-dating-app",
-  storageBucket: "meme-dating-app.firebasestorage.app",
-  messagingSenderId: "1045806780972",
-  appId: "1:1045806780972:web:1bfc2b438a3eee613af789"
+  apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
+  authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
+  projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
+  storageBucket: import.meta.env.VITE_FIREBASE_STORAGE_BUCKET,
+  messagingSenderId: import.meta.env.VITE_FIREBASE_MESSAGING_SENDER_ID,
+  appId: import.meta.env.VITE_FIREBASE_APP_ID,
 };
+
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
