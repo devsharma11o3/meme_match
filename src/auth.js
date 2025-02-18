@@ -87,7 +87,8 @@ addLikedMemesFieldToExistingUsers();
 export const signInWithGoogle = async () => {
   try {
     const result = await signInWithPopup(auth, provider);
-    console.log("✅ User signed in:", result.user);
+    console.log("✅ User signed in:");
+    // console.log("✅ User signed in:", result.user);
     await saveUserToFirestore(result.user); // Run after login
   } catch (error) {
     console.error("❌ Error signing in:", error);
